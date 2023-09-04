@@ -1,8 +1,23 @@
 'use client'
 
+import Image from 'next/image'
+import { Raleway } from 'next/font/google'
+import { ThemeProvider } from 'styled-components'
+
 import StyledComponentsRegistry from '@/styles/registry'
+import GlobalStyle from '@/styles/global'
+import { theme } from '@/styles/theme'
+
+import logo_trinca from '@/assets/logo_trinca.svg'
 
 import * as S from './styles'
+
+const raleway = Raleway({
+  weight: ['300', '400', '500', '700', '800'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap'
+})
 
 export const metadata = {
   title: 'Next.js',
@@ -15,22 +30,25 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={raleway.className}>
       <body>
         <StyledComponentsRegistry>
-          <S.Layout>
-            <div className="b__header">
-              <h1 className="bh__title">Agenda de Churras</h1>
-            </div>
-            <div className="b__page-container">{children}</div>
-            <footer className="b__footer">
-              <img
-                // src={logo_trinca}
-                alt="Trinca's logo"
-                className="bf__image"
-              />
-            </footer>
-          </S.Layout>
+          <ThemeProvider theme={theme}>
+            <GlobalStyle />
+            <S.Layout>
+              <div className="b__header">
+                <h1 className="bh__title">Agenda de Churras</h1>
+              </div>
+              <div className="b__page-container">{children}</div>
+              <footer className="b__footer">
+                <Image
+                  src={logo_trinca}
+                  alt="Trinca's logo"
+                  className="bf__image"
+                />
+              </footer>
+            </S.Layout>
+          </ThemeProvider>
         </StyledComponentsRegistry>
       </body>
     </html>

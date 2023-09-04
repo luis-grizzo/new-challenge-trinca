@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@/components'
+import { Button, Input } from '@/components'
 
 import * as S from './styles'
 
@@ -8,7 +8,7 @@ export default function Batata() {
   return (
     <S.Login>
       <form className="w__login-form">
-        <input
+        <Input
           // value={loginForm.email}
           // onChange={(event) =>
           //   setLoginForm((prevValue) => ({
@@ -16,13 +16,13 @@ export default function Batata() {
           //     email: event.target.value
           //   }))
           // }
-          // label="E-mail"
+          label="E-mail"
           type="email"
           placeholder="exemplo@exemplo.com"
           autoFocus
         />
 
-        <input
+        <Input
           // value={loginForm.password}
           // onChange={(event) =>
           //   setLoginForm((prevValue) => ({
@@ -30,8 +30,8 @@ export default function Batata() {
           //     password: event.target.value
           //   }))
           // }
-          // label="Senha"
           name="password"
+          label="Senha"
           type="password"
           placeholder="Sua senha"
         />
