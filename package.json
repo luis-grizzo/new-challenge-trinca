@@ -13,6 +13,11 @@
     "polished": "^4.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-icons": "^4.10.1",
+    "react-multi-date-picker": "^4.1.2",
+    "react-number-format": "^5.3.1",
+    "react-spring": "^9.7.2",
+    "react-tooltip": "^5.21.1",
     "styled-components": "^6.0.7"
   },
   "devDependencies": {
