@@ -11,7 +11,7 @@ import * as S from './styles'
 type DatePickerProps = {
   label: string
   onChange: (date: Date) => void
-} & RMDatePickerPops &
+} & Omit<RMDatePickerPops, 'onChange'> &
   Omit<RMDPCalendarProps, 'onChange'>
 
 export const DatePicker = ({

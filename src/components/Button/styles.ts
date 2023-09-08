@@ -16,7 +16,7 @@ const variants = {
     color: ${theme.colors.white};
     padding: 1.4rem 1.6rem;
 
-    &:hover:not(:disabled) {
+    &:is(:hover, :focus):not(:disabled) {
       background-color: ${theme.colors.blackHover};
     }
   `,
@@ -25,7 +25,7 @@ const variants = {
     color: ${theme.colors.black};
     padding: 1rem;
 
-    &:hover:not(:disabled) {
+    &:is(:hover, :focus):not(:disabled) {
       color: ${theme.colors.blackHover};
     }
   `,
@@ -36,7 +36,7 @@ const variants = {
     padding: 1.4rem 1.6rem;
     backdrop-filter: blur(0.4rem);
 
-    &:hover:not(:disabled) {
+    &:is(:hover, :focus):not(:disabled) {
       color: ${theme.colors.blackHover};
       border-color: ${theme.colors.blackHover};
     }
