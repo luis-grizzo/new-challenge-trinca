@@ -12,7 +12,7 @@ import { getEventsInStorage, setEventInStorage } from '@/services/user'
 
 import { IEvent } from '@/shared/types'
 import { useAuth } from '@/shared/hooks/auth'
-import { formatAmount } from '@/shared/utils'
+import { formatAmount } from '@/shared/lib'
 
 import { Modal, DatePicker, Input, Textarea, Button } from '@/components'
 

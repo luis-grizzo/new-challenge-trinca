@@ -2,7 +2,7 @@ import { toast } from 'react-toastify'
 
 import { USER_STORAGE_KEY } from "@/shared/constants"
 import { IUser } from "@/shared/types"
-import { getParsedArrayInStorage, generateId } from "@/shared/utils"
+import { getParsedArrayInStorage, generateId } from "@/shared/lib"
 
 /**
  * @function setUserInStorage - Cadastra um novo usuário no localStorage.

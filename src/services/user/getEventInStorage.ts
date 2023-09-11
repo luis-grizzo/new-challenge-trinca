@@ -2,15 +2,15 @@ import { toast } from 'react-toastify'
 
 import { USER_STORAGE_KEY } from "@/shared/constants"
 import { IUser } from "@/shared/types"
-import { getParsedArrayInStorage } from "@/shared/utils"
+import { getParsedArrayInStorage } from "@/shared/lib"
 
 /**
- * @function getEventInStorage - .
+ * @function getEventInStorage - Busca um evento no storage.
  *
- * @param userId - .
- * @param eventId - .
+ * @param userId - Id do usuário autenticado.
+ * @param eventId - Id do evento a ser pesquisado.
  *
- * @returns .
+ * @returns Caso a busca resulte verdadeira, retorna o evento correspondente, caso contrario, retorna null.
  */
 
 export const getEventInStorage = (userId: number | null | undefined, eventId: number) => {

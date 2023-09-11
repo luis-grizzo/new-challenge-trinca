@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify'
 
 import { IEvent, IUser } from '@/shared/types'
-import { generateId, getParsedArrayInStorage } from '@/shared/utils'
+import { generateId, getParsedArrayInStorage } from '@/shared/lib'
 import { USER_STORAGE_KEY } from '@/shared/constants'
 
 /**
@@ -9,7 +9,7 @@ import { USER_STORAGE_KEY } from '@/shared/constants'
  *
  * @param eventBaseInfos - Objeto com as informações base do evento.
  *
- * @returns Novo array com o evento cadastrado.
+ * @returns Caso a adição resulte verdadeira, retorna os eventos dousuário correspondente atualizados, caso contrario, retorna null.
  */
 
 

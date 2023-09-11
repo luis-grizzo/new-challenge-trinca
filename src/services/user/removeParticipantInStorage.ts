@@ -2,7 +2,17 @@ import { toast } from 'react-toastify'
 
 import { USER_STORAGE_KEY } from "@/shared/constants"
 import { IEvent, IUser } from "@/shared/types"
-import { getParsedArrayInStorage } from "@/shared/utils"
+import { getParsedArrayInStorage } from "@/shared/lib"
+
+/**
+ * @function removeParticipantInStorage - Remove um participante de um evento.
+ *
+ * @param userId - Id do usuário autenticado.
+ * @param eventId - Id do evento a ser atualizado.
+ * @param participantId - Id do participante a ser removido.
+ *
+ * @returns Caso a remoção resulte verdadeira, retorna o novo evento correspondente, caso contrario, retorna null.
+ */
 
 export const removeParticipantInStorage = (userId: number | null | undefined, eventId: number, participantId: number) => {
   const parsedStorage = getParsedArrayInStorage<IUser>(USER_STORAGE_KEY)

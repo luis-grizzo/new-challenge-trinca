@@ -2,15 +2,16 @@ import { toast } from 'react-toastify'
 
 import { USER_STORAGE_KEY } from '@/shared/constants'
 import { IEvent, IUser } from '@/shared/types'
-import { getParsedArrayInStorage } from '@/shared/utils'
+import { getParsedArrayInStorage } from '@/shared/lib'
 
 /**
- * @function updatePartcipantPaidInStorage - .
+ * @function updatePartcipantPaidInStorage - Atualiza o status de pago do participante no evento.
  *
- * @param eventId - .
- * @param participantId - .
+ * @param userId - Id do usuário autenticado.
+ * @param eventId - Id do evento a ser atualziado.
+ * @param participantId - Id do participante a ser autalizado.
  *
- * @returns .
+ * @returns Caso a atualização resulte verdadeira, retorna o evento correspondente atualziado, caso contrario, retorna null.
  */
 
 export const updatePartcipantPaidInStorage = (

@@ -2,15 +2,15 @@ import { toast } from "react-toastify"
 
 import { USER_STORAGE_KEY } from "@/shared/constants"
 import { IUser, IEvent, IParticipant } from "@/shared/types"
-import { getParsedArrayInStorage, generateId } from "@/shared/utils"
+import { getParsedArrayInStorage, generateId } from "@/shared/lib"
 
 /**
- * @function - .
+ * @function setParticipantInStorage - Adiciona um participante em um evento.
  *
- * @param eventId - .
- * @param participantBaseInfos - .
+ * @param eventId - Id do evento a ser atualizado.
+ * @param participantBaseInfos - Informações base para a criação do evento.
  *
- * @returns .
+ * @returns Caso a adição resulte verdadeira, retorna o evento correspondente atualizado, caso contrario, retorna null.
  */
 
 export const setParticipantInStorage = (

@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Metadata } from 'next'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useSpring, animated } from 'react-spring'
@@ -11,7 +10,7 @@ import { MdKeyboardReturn, MdAdd, MdCheck, MdInfo } from 'react-icons/md'
 import { getEventInStorage, setParticipantInStorage } from '@/services/user'
 
 import { IEvent, IParticipant } from '@/shared/types'
-import { formatAmount } from '@/shared/utils'
+import { formatAmount } from '@/shared/lib'
 import { useAuth } from '@/shared/hooks/auth'
 
 import {
