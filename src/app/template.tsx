@@ -2,8 +2,13 @@
 
 import { useEffect } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
+import { ThemeProvider } from 'styled-components'
+import { ToastContainer } from 'react-toastify'
 
 import { useAuth } from '@/shared/hooks/auth'
+
+import GlobalStyle from '@/styles/global'
+import { theme } from '@/styles/theme'
 
 export default function Template({ children }: { children: React.ReactNode }) {
   const router = useRouter()
@@ -24,5 +29,11 @@ export default function Template({ children }: { children: React.ReactNode }) {
   }, [userId])
 
   if (userId === undefined) return null
-  return <>{children}</>
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <ToastContainer />
+      {children}
+    </ThemeProvider>
+  )
 }
