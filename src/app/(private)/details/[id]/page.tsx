@@ -79,7 +79,7 @@ export default function Details({
     const event = getEventInStorage(userId, parseInt(params.id))
 
     setEvent(event)
-  })
+  }, [])
 
   return (
     <S.Details>
