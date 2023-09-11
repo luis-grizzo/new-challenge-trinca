@@ -30,9 +30,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Agenda de churras - Trinca',
     description: 'Desafio tecnico front-end da empresa Trinca.',
-    images: {
-      url: '/icon.svg'
-    }
+    images: [
+      {
+        url: '/icon.svg'
+      }
+    ]
   }
 }
 
