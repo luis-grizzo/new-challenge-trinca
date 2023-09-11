@@ -23,11 +23,6 @@ const raleway = Raleway({
   display: 'swap'
 })
 
-export const metadata = {
-  title: 'Churras Trinca',
-  description: 'Desafio tecnico front-end da empresa Trinca.'
-}
-
 export default function RootLayout({
   children
 }: {
