@@ -97,6 +97,11 @@ const GlobalStyle = createGlobalStyle`
       font-weight: 400;
       line-height: 1;
     }
+
+    .global__tooltip {
+      font-size: 1.8rem;
+      font-weight: 300;
+    }
   `}
 `
 export default GlobalStyle
