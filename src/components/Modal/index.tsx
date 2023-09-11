@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useTransition, animated } from 'react-spring'
+import { useTransition, animated, easings } from 'react-spring'
 import { MdClose } from 'react-icons/md'
 
 import * as S from './styles'
@@ -32,7 +32,7 @@ export const Modal = ({
     reverse: isOpen
   })
 
-  const overlayTrasition = useTransition(isOpen, {
+  const overlayTransition = useTransition(isOpen, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
@@ -69,12 +69,13 @@ export const Modal = ({
                 </animated.div>
               )
           )}
-          {overlayTrasition(
+
+          {overlayTransition(
             (style, item) =>
               item && (
                 <animated.div
-                  role="overlay"
                   style={style}
+                  role="overlay"
                   onClick={() => onClose?.()}
                   className="m__overlay"
                 />

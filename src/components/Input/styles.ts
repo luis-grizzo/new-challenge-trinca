@@ -24,6 +24,7 @@ export const Wrapper = styled.div`
 
       &::placeholder {
         font-style: italic;
+        font-weight: 400;
       }
     }
   `}

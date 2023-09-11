@@ -42,14 +42,13 @@ export const Checkbox = ({
         <>
           <span
             role="icon"
-            className="w__info-icon"
-            data-for="info-icon"
-            data-tip={infoIcon.message}
+            data-tooltip-id="info-icon"
+            data-tooltip-content={infoIcon.message}
             data-place="top"
           >
             {infoIcon.icon}
           </span>
-          <Tooltip id="info-icon" />
+          <Tooltip id="info-icon" className="global__tooltip" />
         </>
       )}
     </S.Wrapper>

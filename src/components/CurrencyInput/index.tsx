@@ -1,16 +1,18 @@
-import { NumericFormat, NumericFormatProps } from 'react-number-format'
+import { NumberFormatBase, NumberFormatBaseProps } from 'react-number-format'
 
 import { formatAmount } from '@/shared/utils'
 
 type CurrencyInputProps = {
   label: string
+  description: string | null
   onChange?: (value: number) => void
-} & Omit<NumericFormatProps, 'onChange'>
+} & Omit<NumberFormatBaseProps, 'onChange'>
 
 import * as S from './styles'
 
 export const CurrencyInput = ({
   label,
+  description,
   onChange,
   ...props
 }: CurrencyInputProps): React.ReactElement => {
@@ -30,18 +32,19 @@ export const CurrencyInput = ({
       <label htmlFor={linkInputLabel} className="w__label">
         {label}
       </label>
-      <NumericFormat
+
+      <NumberFormatBase
         type="tel"
         id={linkInputLabel}
         defaultValue={0}
         valueIsNumericString
-        allowNegative={false}
-        allowLeadingZeros={false}
-        // format={(value) => formatAmount(parseInt(value) / 100)}
+        format={(value) => formatAmount(parseInt(value) / 100)}
         onChange={handleOnChange}
         className="w__input"
         {...props}
       />
+
+      {description && <span className="w__description">{description}</span>}
     </S.Wrapper>
   )
 }

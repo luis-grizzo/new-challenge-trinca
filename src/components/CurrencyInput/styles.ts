@@ -26,5 +26,10 @@ export const Wrapper = styled.div`
         font-style: italic;
       }
     }
+
+    .w__description {
+      font-size: 1.8rem;
+      color: ${theme.colors.text};
+    }
   `}
 `
