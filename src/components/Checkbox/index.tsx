@@ -1,6 +1,6 @@
 import { Tooltip } from 'react-tooltip'
 
-import { generateId } from '@/shared/utils'
+import { generateId } from '@/shared/lib'
 
 import * as S from './styles'
 

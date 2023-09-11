@@ -1,6 +1,6 @@
 import { NumberFormatBase, NumberFormatBaseProps } from 'react-number-format'
 
-import { formatAmount } from '@/shared/utils'
+import { formatAmount } from '@/shared/lib'
 
 type CurrencyInputProps = {
   label: string
