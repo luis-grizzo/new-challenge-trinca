@@ -22,10 +22,6 @@ interface IRegisterInputs {
   password: string
 }
 
-export const metadata: Metadata = {
-  title: 'Agenda de churras | Login'
-}
-
 export default function Login() {
   const { login } = useAuth()
 

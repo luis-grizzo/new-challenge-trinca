@@ -25,10 +25,6 @@ import {
 
 import * as S from './styles'
 
-export const metadata: Metadata = {
-  title: 'Agenda de churras | Detalhe do churras'
-}
-
 export default function Details({
   params
 }: {

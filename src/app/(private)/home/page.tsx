@@ -18,10 +18,6 @@ import { Modal, DatePicker, Input, Textarea, Button } from '@/components'
 
 import * as S from './styles'
 
-export const metadata: Metadata = {
-  title: 'Agenda de churras | Home'
-}
-
 export default function Home(): React.ReactElement {
   const { userId, logout } = useAuth()
 
