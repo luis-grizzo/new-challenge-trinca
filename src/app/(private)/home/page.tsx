@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useTrail, animated, useSpring, easings } from 'react-spring'
+import { useTrail, animated, useSpring } from 'react-spring'
 import { format } from 'date-fns'
 import { MdCheck, MdLogout } from 'react-icons/md'
 
@@ -21,9 +21,7 @@ export default function Home(): React.ReactElement {
   const { userId, logout } = useAuth()
 
   const [modalIsOpen, setModalIsOpen] = useState(false)
-  const [events, setEvents] = useState<IEvent[] | null>(
-    getEventsInStorage(userId)
-  )
+  const [events, setEvents] = useState<IEvent[] | null>(null)
   const [registerEventForm, setRegisterEventForm] = useState<
     Pick<IEvent, 'title' | 'date' | 'description'>
   >({
@@ -31,8 +29,6 @@ export default function Home(): React.ReactElement {
     date: new Date(),
     description: ''
   })
-
-  const AnimatedLink = animated(Link)
 
   const onSubmit = (event: React.FormEvent) => {
     event.preventDefault()
@@ -48,6 +44,8 @@ export default function Home(): React.ReactElement {
       description: ''
     })
   }
+
+  const AnimatedLink = animated(Link)
 
   const trail = useTrail(events?.length ?? 0, {
     from: { opacity: 0, y: 100 },
@@ -69,21 +67,23 @@ export default function Home(): React.ReactElement {
     []
   )
 
-  if (events) {
-    return (
-      <S.Home>
-        <div className="w__controls">
-          <Button
-            variant="outlined"
-            icon={<MdLogout />}
-            onClick={() => logout()}
-          >
-            Sair
-          </Button>
-        </div>
+  useEffect(() => {
+    const events = getEventsInStorage(userId)
 
-        <div className="w__grid">
-          {trail.map((style, index) => (
+    setEvents(events)
+  }, [])
+
+  return (
+    <S.Home>
+      <div className="w__controls">
+        <Button variant="outlined" icon={<MdLogout />} onClick={() => logout()}>
+          Sair
+        </Button>
+      </div>
+
+      <div className="w__grid">
+        {events &&
+          trail.map((style, index) => (
             <AnimatedLink
               key={events[index].id}
               style={style}
@@ -119,80 +119,79 @@ export default function Home(): React.ReactElement {
             </AnimatedLink>
           ))}
 
-          <animated.div
-            style={addEventCardAniamtion}
-            onClick={() => setModalIsOpen(true)}
-            className="wg__add-event-card"
-          >
-            <div className="wgaec__image-wrapper">
-              <Image
-                src="/icon_bbq.svg"
-                width={40}
-                height={40}
-                alt="Ícone de churrasqueira."
-              />
-            </div>
-
-            <span className="wgaec__description">Adicionar Churras</span>
-          </animated.div>
-        </div>
-
-        <Modal
-          isOpen={modalIsOpen}
-          onClose={() => setModalIsOpen(false)}
-          modalTitle="Adicionar churras"
+        <animated.div
+          style={addEventCardAniamtion}
+          onClick={() => setModalIsOpen(true)}
+          className="wg__add-event-card"
         >
-          <form onSubmit={onSubmit} className="wm__form">
-            <Input
-              value={registerEventForm.title}
-              onChange={(event) =>
-                setRegisterEventForm((prevValue) => ({
-                  ...prevValue,
-                  title: event.target.value
-                }))
-              }
-              label="Titulo"
-              type="text"
-              placeholder="Qual o motivo da festa?"
-              autoFocus
+          <div className="wgaec__image-wrapper">
+            <Image
+              src="/icon_bbq.svg"
+              width={40}
+              height={40}
+              alt="Ícone de churrasqueira."
             />
+          </div>
 
-            <DatePicker
-              value={registerEventForm.date}
-              onChange={(date) =>
-                setRegisterEventForm((prevValue) => ({
-                  ...prevValue,
-                  date
-                }))
-              }
-              label="Selecione uma data"
-              placeholder="Escolha uma boa data para celebrar!"
-            />
+          <span className="wgaec__description">Adicionar Churras</span>
+        </animated.div>
+      </div>
 
-            <Textarea
-              value={registerEventForm.description}
-              onChange={(event) =>
-                setRegisterEventForm((prevValue) => ({
-                  ...prevValue,
-                  additionalInfo: event.target.value
-                }))
-              }
-              label="Informações adicionais"
-              placeholder="O que o pessoal não pode esquecer? (Opcional)"
-            />
+      <Modal
+        isOpen={modalIsOpen}
+        onClose={() => setModalIsOpen(false)}
+        modalTitle="Adicionar churras"
+      >
+        <form onSubmit={onSubmit} className="wm__form">
+          <Input
+            value={registerEventForm.title}
+            onChange={(event) =>
+              setRegisterEventForm((prevValue) => ({
+                ...prevValue,
+                title: event.target.value
+              }))
+            }
+            label="Titulo"
+            type="text"
+            placeholder="Qual o motivo da festa?"
+            autoFocus
+          />
 
-            <Button
-              variant="default"
-              type="submit"
-              fullWidth
-              icon={<MdCheck />}
-              disabled={!registerEventForm.title}
-            >
-              Adicionar
-            </Button>
-          </form>
-        </Modal>
-      </S.Home>
-    )
-  } else return <div>sem eventos cadastrados</div>
+          <DatePicker
+            value={registerEventForm.date}
+            onChange={(date) =>
+              setRegisterEventForm((prevValue) => ({
+                ...prevValue,
+                date
+              }))
+            }
+            label="Selecione uma data"
+            placeholder="Escolha uma boa data para celebrar!"
+          />
+
+          <Textarea
+            value={registerEventForm.description}
+            onChange={(event) =>
+              setRegisterEventForm((prevValue) => ({
+                ...prevValue,
+                additionalInfo: event.target.value
+              }))
+            }
+            label="Informações adicionais"
+            placeholder="O que o pessoal não pode esquecer? (Opcional)"
+          />
+
+          <Button
+            variant="default"
+            type="submit"
+            fullWidth
+            icon={<MdCheck />}
+            disabled={!registerEventForm.title}
+          >
+            Adicionar
+          </Button>
+        </form>
+      </Modal>
+    </S.Home>
+  )
 }

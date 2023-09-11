@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useSpring, animated } from 'react-spring'
@@ -33,9 +33,7 @@ export default function Details({
 
   const { userId } = useAuth()
 
-  const [event, setEvent] = useState<IEvent | null>(
-    getEventInStorage(userId, parseInt(params.id))
-  )
+  const [event, setEvent] = useState<IEvent | null>(null)
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [registerParticipantForm, setRegisterParticipantForm] = useState<
     Pick<IParticipant, 'name' | 'drink_included' | 'contribution_value'>
@@ -49,6 +47,7 @@ export default function Details({
     e.preventDefault()
 
     const { drink_included, contribution_value } = registerParticipantForm
+
     const newEvent = setParticipantInStorage(userId, eventId, {
       ...registerParticipantForm,
       contribution_value: drink_included
@@ -74,6 +73,12 @@ export default function Details({
   const amountAnimation = useSpring({
     val: event?.total_raised ?? 0,
     from: { val: 0 }
+  })
+
+  useEffect(() => {
+    const event = getEventInStorage(userId, parseInt(params.id))
+
+    setEvent(event)
   })
 
   return (
