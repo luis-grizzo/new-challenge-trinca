@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useLayoutEffect } from 'react'
 
 import { AuthContext } from './use-auth'
 
@@ -29,11 +29,11 @@ export const AuthProvider = ({
     setUserId(null)
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const userId = validateAuthInSessionStorage()
 
     setUserId(userId)
-  }, [])
+  })
 
   return (
     <AuthContext.Provider value={{ userId, login, logout }}>
