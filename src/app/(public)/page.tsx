@@ -1,21 +1,85 @@
 'use client'
 
-import { Button, Input } from '@/components'
+import { useState } from 'react'
+import { MdCreate } from 'react-icons/md'
+
+import { setUserInStorage, validateUserInStorage } from '@/services/user'
+
+import { useAuth } from '@/shared/hooks/auth'
+
+import { Button, Input, Modal } from '@/components'
 
 import * as S from './styles'
 
-export default function Batata() {
+interface ILoginInputs {
+  email: string
+  password: string
+}
+
+interface IRegisterInputs {
+  email: string
+  password: string
+}
+
+export default function Login() {
+  const { login } = useAuth()
+
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [registerForm, setRegisterForm] = useState<IRegisterInputs>({
+    email: '',
+    password: ''
+  })
+  const [loginForm, setLoginForm] = useState<ILoginInputs>({
+    email: '',
+    password: ''
+  })
+
+  const onRegisterSubmit = (event: React.FormEvent) => {
+    event.preventDefault()
+
+    const { email, password } = registerForm
+
+    setUserInStorage(email, password)
+
+    setModalIsOpen(false)
+    setRegisterForm({
+      email: '',
+      password: ''
+    })
+  }
+
+  const onLoginSubmit = (event: React.FormEvent) => {
+    event.preventDefault()
+
+    const { email, password } = loginForm
+
+    const authenticated = validateUserInStorage(email, password)
+
+    if (authenticated) {
+      login({
+        id: authenticated.id,
+        email: authenticated.email,
+        password: authenticated.password
+      })
+
+      setLoginForm({
+        email: '',
+        password: ''
+      })
+    }
+  }
+
   return (
     <S.Login>
-      <form className="w__login-form">
+      <form onSubmit={onLoginSubmit} className="w__login-form">
         <Input
-          // value={loginForm.email}
-          // onChange={(event) =>
-          //   setLoginForm((prevValue) => ({
-          //     ...prevValue,
-          //     email: event.target.value
-          //   }))
-          // }
+          value={loginForm.email}
+          onChange={(event) =>
+            setLoginForm((prevValue) => ({
+              ...prevValue,
+              email: event.target.value
+            }))
+          }
           label="E-mail"
           type="email"
           placeholder="exemplo@exemplo.com"
@@ -23,13 +87,13 @@ export default function Batata() {
         />
 
         <Input
-          // value={loginForm.password}
-          // onChange={(event) =>
-          //   setLoginForm((prevValue) => ({
-          //     ...prevValue,
-          //     password: event.target.value
-          //   }))
-          // }
+          value={loginForm.password}
+          onChange={(event) =>
+            setLoginForm((prevValue) => ({
+              ...prevValue,
+              password: event.target.value
+            }))
+          }
           name="password"
           label="Senha"
           type="password"
@@ -41,9 +105,11 @@ export default function Batata() {
         </Button>
       </form>
 
-      <Button variant="ghost">Primeira vez? Cadastre-se!</Button>
+      <Button variant="ghost" onClick={() => setModalIsOpen(true)}>
+        Primeira vez? Cadastre-se!
+      </Button>
 
-      {/* <Modal
+      <Modal
         isOpen={modalIsOpen}
         modalTitle="Adicionar Conta"
         onClose={() => setModalIsOpen(false)}
@@ -86,7 +152,7 @@ export default function Batata() {
             Adicionar
           </Button>
         </form>
-      </Modal> */}
+      </Modal>
     </S.Login>
   )
 }

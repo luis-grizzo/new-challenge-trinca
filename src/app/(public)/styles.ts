@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components'
 
-import pattern_bbq from '@/assets/pattern_bbq.svg'
-
 export const Layout = styled.main`
 ${({ theme }) => css`
   display: grid;
@@ -26,7 +24,7 @@ ${({ theme }) => css`
         transparent 60%,
         ${theme.colors.primary} 100%
       ),
-      url(${pattern_bbq.src});
+      url('/pattern_bbq.svg');
     background-size: cover;
 
     .bh__title {
@@ -54,8 +52,6 @@ ${({ theme }) => css`
     overflow: hidden;
 
     .bf__image {
-      width: 48px;
-      aspect-ratio: 1/1;
     }
   }
 `}
