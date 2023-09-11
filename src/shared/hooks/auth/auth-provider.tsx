@@ -1,8 +1,8 @@
-import { useState, useLayoutEffect } from 'react'
+import { useLayoutEffect, useState, useEffect } from 'react'
 
 import { AuthContext } from './use-auth'
 
-import { ICredential } from '@/shared/types'
+import { IUser } from '@/shared/types'
 
 import {
   validateAuthInSessionStorage,
@@ -17,26 +17,22 @@ type AuthProviderProps = {
 export const AuthProvider = ({
   children
 }: AuthProviderProps): React.ReactElement => {
-  const [isLogged, setIsLogged] = useState(false)
+  const [userId, setUserId] = useState<number | null>(
+    validateAuthInSessionStorage()
+  )
 
-  useLayoutEffect(() => {
-    const authenticated = validateAuthInSessionStorage()
-
-    setIsLogged(authenticated)
-  })
-
-  const login = (credential: ICredential) => {
+  const login = (credential: Pick<IUser, 'id' | 'email' | 'password'>) => {
     setAuthInSessionStorage(credential)
-    setIsLogged(true)
+    setUserId(credential.id)
   }
 
   const logout = () => {
     removeAuthInSessionStorage()
-    setIsLogged(false)
+    setUserId(null)
   }
 
   return (
-    <AuthContext.Provider value={{ isLogged, login, logout }}>
+    <AuthContext.Provider value={{ userId, login, logout }}>
       {children}
     </AuthContext.Provider>
   )
