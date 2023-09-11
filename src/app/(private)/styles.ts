@@ -83,8 +83,6 @@ export const Loading = styled.div`
       .lc__image {
         width: 20rem;
         height: 20rem;
-
-        backdrop-filter: blur(0.4rem);
       }
 
       .lc__progress-bar {

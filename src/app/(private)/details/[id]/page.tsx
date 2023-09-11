@@ -5,7 +5,13 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useSpring, animated } from 'react-spring'
 import { format } from 'date-fns'
-import { MdKeyboardReturn, MdAdd, MdCheck, MdInfo } from 'react-icons/md'
+import {
+  MdKeyboardReturn,
+  MdAdd,
+  MdCheck,
+  MdInfo,
+  MdOutdoorGrill
+} from 'react-icons/md'
 
 import { getEventInStorage, setParticipantInStorage } from '@/services/user'
 
@@ -83,7 +89,7 @@ export default function Details({
 
   return (
     <S.Details>
-      <div className="w__controls">
+      <div className="d__controls">
         <Button
           variant="outlined"
           icon={<MdKeyboardReturn />}
@@ -95,19 +101,19 @@ export default function Details({
 
       {event ? (
         <>
-          <animated.div style={wrapperAnimation} className="w__page">
-            <div className="wp__header">
-              <div className="wph__row">
-                <div className="wph__column">
-                  <span className="wph__date">
+          <animated.div style={wrapperAnimation} className="d__page">
+            <div className="dp__header">
+              <div className="dph__row">
+                <div className="dph__column">
+                  <span className="dph__date">
                     {format(new Date(event.date), 'dd/MM')}
                   </span>
 
-                  <h1 className="wph__title">{event.title}</h1>
+                  <h1 className="dph__title">{event.title}</h1>
                 </div>
 
-                <div className="wph__column">
-                  <span className="wph__guests">
+                <div className="dph__column">
+                  <span className="dph__guests">
                     <Image
                       src="/icon_guests.svg"
                       width={21}
@@ -117,7 +123,7 @@ export default function Details({
                     {event.participants?.length ?? 0}
                   </span>
 
-                  <span className="wph__money">
+                  <span className="dph__money">
                     <Image
                       src="/icon_money.svg"
                       width={21}
@@ -134,13 +140,13 @@ export default function Details({
               </div>
 
               {event.description && (
-                <div className="wph__additional-information">
+                <div className="dph__additional-information">
                   {event.description}
                 </div>
               )}
             </div>
 
-            <div className="wp__list">
+            <div className="dp__list">
               <List
                 eventId={event.id}
                 participants={event.participants}
@@ -165,7 +171,7 @@ export default function Details({
           >
             <form
               onSubmit={(e) => handleSubmit(e, event.id)}
-              className="wm__form"
+              className="dm__form"
             >
               <Input
                 value={registerParticipantForm.name}
@@ -180,7 +186,7 @@ export default function Details({
                 autoFocus
               />
 
-              <div className="wmf__money">
+              <div className="dmf__money">
                 <CurrencyInput
                   value={registerParticipantForm.contribution_value}
                   onChange={(value) => {
@@ -229,7 +235,12 @@ export default function Details({
           </Modal>
         </>
       ) : (
-        <div>Evento não encontrado</div>
+        <animated.div style={wrapperAnimation} className="dp__not-found">
+          <div className="dpnf__content">
+            <MdOutdoorGrill className="dpnfc__icon" />
+            <span className="dpnfc__text">Churras não encontrado.</span>
+          </div>
+        </animated.div>
       )}
     </S.Details>
   )

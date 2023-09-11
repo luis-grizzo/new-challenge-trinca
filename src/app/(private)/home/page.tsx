@@ -175,7 +175,7 @@ export default function Home(): React.ReactElement {
             onChange={(event) =>
               setRegisterEventForm((prevValue) => ({
                 ...prevValue,
-                additionalInfo: event.target.value
+                description: event.target.value
               }))
             }
             label="Informações adicionais"
