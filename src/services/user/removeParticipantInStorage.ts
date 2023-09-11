@@ -4,7 +4,7 @@ import { USER_STORAGE_KEY } from "@/shared/constants"
 import { IEvent, IUser } from "@/shared/types"
 import { getParsedArrayInStorage } from "@/shared/utils"
 
-export const removeParticipantInStorage = (userId: number | null, eventId: number, participantId: number) => {
+export const removeParticipantInStorage = (userId: number | null | undefined, eventId: number, participantId: number) => {
   const parsedStorage = getParsedArrayInStorage<IUser>(USER_STORAGE_KEY)
 
   if (userId) {

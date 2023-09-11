@@ -14,7 +14,7 @@ import { getParsedArrayInStorage } from '@/shared/utils'
  */
 
 export const updatePartcipantPaidInStorage = (
-  userId: number | null,
+  userId: number | null | undefined,
   eventId: number,
   participantId: number
 ) => {

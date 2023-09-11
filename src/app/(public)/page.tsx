@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { Metadata } from 'next'
 import { MdCreate } from 'react-icons/md'
 
 import { setUserInStorage, validateUserInStorage } from '@/services/user'
@@ -19,6 +20,10 @@ interface ILoginInputs {
 interface IRegisterInputs {
   email: string
   password: string
+}
+
+export const metadata: Metadata = {
+  title: 'Agenda de churras | Login'
 }
 
 export default function Login() {

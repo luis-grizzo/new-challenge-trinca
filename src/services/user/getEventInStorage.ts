@@ -13,7 +13,7 @@ import { getParsedArrayInStorage } from "@/shared/utils"
  * @returns .
  */
 
-export const getEventInStorage = (userId: number | null, eventId: number) => {
+export const getEventInStorage = (userId: number | null | undefined, eventId: number) => {
   const parsedStorage = getParsedArrayInStorage<IUser>(USER_STORAGE_KEY)
 
   if (userId) {

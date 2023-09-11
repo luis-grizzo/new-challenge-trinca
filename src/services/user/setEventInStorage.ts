@@ -14,7 +14,7 @@ import { USER_STORAGE_KEY } from '@/shared/constants'
 
 
 export const setEventInStorage = (
-  userId: number | null,
+  userId: number | null | undefined,
   eventBaseInfos: Pick<IEvent, 'title' | 'date' | 'description'>
 ) => {
   const parsedStorage = getParsedArrayInStorage<IUser>(USER_STORAGE_KEY)

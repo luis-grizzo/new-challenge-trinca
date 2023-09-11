@@ -23,6 +23,10 @@ const raleway = Raleway({
   display: 'swap'
 })
 
+export const metadata = {
+  title: 'Agenda de churras'
+}
+
 export default function RootLayout({
   children
 }: {
@@ -36,9 +40,9 @@ export default function RootLayout({
             <GlobalStyle />
             <ToastContainer />
             <AuthProvider>
-              <Template key={10}>
-                <Suspense fallback={<Loading />}>{children}</Suspense>
-              </Template>
+              <Suspense fallback={<Loading />}>
+                <Template key={1}>{children}</Template>
+              </Suspense>
             </AuthProvider>
           </ThemeProvider>
         </StyledComponentsRegistry>

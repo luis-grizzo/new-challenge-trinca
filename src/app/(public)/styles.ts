@@ -101,16 +101,13 @@ export const Loading = styled.div`
       align-items: center;
       gap: 4rem;
 
-      padding: 4rem;
-
-      background-color: ${theme.colors.primary};
-      box-shadow: ${theme.shadows.default};
 
       .lc__image {
         width: 20rem;
         height: 20rem;
 
         backdrop-filter: blur(0.4rem);
+        box-shadow: ${theme.shadows.default};
       }
 
       .lc__progress-bar {

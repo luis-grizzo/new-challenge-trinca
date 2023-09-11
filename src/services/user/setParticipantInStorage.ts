@@ -14,7 +14,7 @@ import { getParsedArrayInStorage, generateId } from "@/shared/utils"
  */
 
 export const setParticipantInStorage = (
-  userId: number | null,
+  userId: number | null | undefined,
   eventId: number,
   participantBaseInfos: Pick<IParticipant, 'name' | 'drink_included' | 'contribution_value'>
 ) => {

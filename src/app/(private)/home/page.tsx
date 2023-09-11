@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useTrail, animated, useSpring } from 'react-spring'
@@ -16,6 +17,10 @@ import { formatAmount } from '@/shared/utils'
 import { Modal, DatePicker, Input, Textarea, Button } from '@/components'
 
 import * as S from './styles'
+
+export const metadata: Metadata = {
+  title: 'Agenda de churras | Home'
+}
 
 export default function Home(): React.ReactElement {
   const { userId, logout } = useAuth()

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useSpring, animated } from 'react-spring'
@@ -23,6 +24,10 @@ import {
 } from '@/components'
 
 import * as S from './styles'
+
+export const metadata: Metadata = {
+  title: 'Agenda de churras | Detalhe do churras'
+}
 
 export default function Details({
   params

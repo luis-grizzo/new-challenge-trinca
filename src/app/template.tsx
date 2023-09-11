@@ -17,11 +17,12 @@ export default function Template({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (!!userId) {
-      !privateRoutes.includes(formattedPathname) && router.push('/home')
-    } else {
-      !publicRoutes.includes(formattedPathname) && router.push('/')
+      !privateRoutes.includes(formattedPathname) && router.replace('/home')
+    } else if (userId === null) {
+      !publicRoutes.includes(formattedPathname) && router.replace('/')
     }
   }, [userId])
 
+  if (userId === undefined) return null
   return <>{children}</>
 }

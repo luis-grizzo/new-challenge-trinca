@@ -17,7 +17,7 @@ type AuthProviderProps = {
 export const AuthProvider = ({
   children
 }: AuthProviderProps): React.ReactElement => {
-  const [userId, setUserId] = useState<number | null>(null)
+  const [userId, setUserId] = useState<number | null | undefined>(undefined)
 
   const login = (credential: Pick<IUser, 'id' | 'email' | 'password'>) => {
     setAuthInSessionStorage(credential)
