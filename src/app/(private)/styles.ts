@@ -80,11 +80,6 @@ export const Loading = styled.div`
       background-color: ${theme.colors.shape};
       box-shadow: ${theme.shadows.default};
 
-      .lc__image {
-        width: 20rem;
-        height: 20rem;
-      }
-
       .lc__progress-bar {
         height: 0.5rem;
         background-color: ${theme.colors.opaqueBackground};

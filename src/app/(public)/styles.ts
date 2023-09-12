@@ -62,9 +62,6 @@ export const Layout = styled.main`
 
       padding-bottom: 4rem;
       overflow: hidden;
-
-      .bf__image {
-      }
     }
   `}
 `
@@ -82,9 +79,6 @@ export const Loading = styled.div`
       gap: 4rem;
 
       .lc__image {
-        width: 20rem;
-        height: 20rem;
-
         backdrop-filter: blur(0.4rem);
         box-shadow: ${theme.shadows.default};
       }

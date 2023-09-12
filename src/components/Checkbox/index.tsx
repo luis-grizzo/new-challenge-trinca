@@ -32,7 +32,6 @@ export const Checkbox = ({
         {...props}
       />
       <label
-        role="label"
         htmlFor={linkInputLabel}
         className={`w__label ${labelClassName ?? ''}`}
       >
@@ -41,7 +40,6 @@ export const Checkbox = ({
       {infoIcon && (
         <>
           <span
-            role="icon"
             data-tooltip-id="info-icon"
             data-tooltip-content={infoIcon.message}
             data-place="top"
