@@ -1,9 +1,11 @@
+'use client'
+
 import { createContext, useContext } from 'react'
 
 import { IUser } from '@/shared/types'
 
 type UseAuthData = {
-  userId: number | null
+  userId: number | null | undefined
   login: (login: Pick<IUser, 'id' | 'email' | 'password'>) => void
   logout: () => void
 }

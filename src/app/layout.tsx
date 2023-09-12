@@ -1,20 +1,16 @@
-'use client'
-
 import { Suspense } from 'react'
+import { Metadata } from 'next'
 import { Raleway } from 'next/font/google'
-import { ThemeProvider } from 'styled-components'
-import { ToastContainer } from 'react-toastify'
 
 import 'react-toastify/dist/ReactToastify.min.css'
 
 import { AuthProvider } from '@/shared/hooks/auth'
 
+import StyledComponentsRegistry from '@/styles/registry'
+import { theme } from '@/styles/theme'
+
 import Template from './template'
 import Loading from './loading'
-
-import StyledComponentsRegistry from '@/styles/registry'
-import GlobalStyle from '@/styles/global'
-import { theme } from '@/styles/theme'
 
 const raleway = Raleway({
   weight: ['300', '400', '500', '700', '800'],
@@ -22,6 +18,24 @@ const raleway = Raleway({
   subsets: ['latin'],
   display: 'swap'
 })
+
+export const metadata: Metadata = {
+  icons: {
+    icon: '/icon.svg'
+  },
+  description: 'Desafio tecnico front-end da empresa Trinca.',
+  themeColor: `${theme.colors.primary}`,
+  openGraph: {
+    description: 'Desafio tecnico front-end da empresa Trinca.',
+    images: [
+      {
+        url: '/icon.svg',
+        width: 500,
+        height: 500
+      }
+    ]
+  }
+}
 
 export default function RootLayout({
   children
@@ -32,15 +46,11 @@ export default function RootLayout({
     <html lang="pt-br" className={raleway.className}>
       <body>
         <StyledComponentsRegistry>
-          <ThemeProvider theme={theme}>
-            <GlobalStyle />
-            <ToastContainer />
-            <AuthProvider>
-              <Template key={10}>
-                <Suspense fallback={<Loading />}>{children}</Suspense>
-              </Template>
-            </AuthProvider>
-          </ThemeProvider>
+          <AuthProvider>
+            <Suspense fallback={<Loading />}>
+              <Template key={1}>{children}</Template>
+            </Suspense>
+          </AuthProvider>
         </StyledComponentsRegistry>
       </body>
     </html>

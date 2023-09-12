@@ -23,7 +23,7 @@ export const Loading = styled.div`
     overflow: hidden;
 
     background-color: ${theme.colors.primary};
-    background-image: url("/pattern_bbq.svg");
+    background-image: url('/pattern_bbq.svg');
     background-size: cover;
 
     .l__content {
@@ -33,9 +33,6 @@ export const Loading = styled.div`
       gap: 4rem;
 
       .lc__image {
-        width: 20rem;
-        height: 20rem;
-
         box-shadow: ${theme.shadows.default};
         backdrop-filter: blur(0.4rem);
       }

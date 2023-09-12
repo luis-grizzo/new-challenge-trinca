@@ -8,7 +8,7 @@ import {
   updatePartcipantPaidInStorage,
   removeParticipantInStorage
 } from '@/services/user'
-import { formatAmount } from '@/shared/utils'
+import { formatAmount } from '@/shared/lib'
 import { useAuth } from '@/shared/hooks/auth'
 
 import { Checkbox, Button } from '@/components'

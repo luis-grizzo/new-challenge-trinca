@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react'
+'use client'
+
+import { useState, useLayoutEffect } from 'react'
 
 import { AuthContext } from './use-auth'
 
@@ -17,7 +19,7 @@ type AuthProviderProps = {
 export const AuthProvider = ({
   children
 }: AuthProviderProps): React.ReactElement => {
-  const [userId, setUserId] = useState<number | null>(null)
+  const [userId, setUserId] = useState<number | null | undefined>(undefined)
 
   const login = (credential: Pick<IUser, 'id' | 'email' | 'password'>) => {
     setAuthInSessionStorage(credential)
@@ -29,7 +31,7 @@ export const AuthProvider = ({
     setUserId(null)
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const userId = validateAuthInSessionStorage()
 
     setUserId(userId)

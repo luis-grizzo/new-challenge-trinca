@@ -43,7 +43,7 @@ export const List = styled.div`
       .lr__right {
         display: flex;
         align-items: center;
-        gap: .8rem;
+        gap: 0.8rem;
 
         font-size: 2.1rem;
         font-weight: 700;

@@ -19,7 +19,6 @@ export default function Loading(): React.ReactElement {
           width={200}
           height={200}
           alt="Logo Trinca"
-          className="lc__image"
         />
         <div className="lc__progress-bar">
           <div className="lcpb__bar" />

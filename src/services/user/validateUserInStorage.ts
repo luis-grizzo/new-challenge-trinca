@@ -2,7 +2,7 @@ import { toast } from 'react-toastify'
 
 import { IUser } from '@/shared/types'
 import { USER_STORAGE_KEY } from '@/shared/constants'
-import { getParsedArrayInStorage } from '@/shared/utils'
+import { getParsedArrayInStorage } from '@/shared/lib'
 
 /**
  * @function validateUserInStorage - Valida o email e senha fornecidos com os usuários cadastrados no localStorage.

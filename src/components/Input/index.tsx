@@ -9,10 +9,10 @@ export const Input = ({ label, ...props }: InputProps): React.ReactElement => {
 
   return (
     <S.Wrapper>
-      <label role="label" htmlFor={linkInputLabel} className="w__label">
+      <label htmlFor={linkInputLabel} className="w__label">
         {label}
       </label>
-      <input role="input" id={linkInputLabel} className="w__input" {...props} />
+      <input id={linkInputLabel} className="w__input" {...props} />
     </S.Wrapper>
   )
 }

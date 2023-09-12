@@ -39,7 +39,6 @@ export default function PublicLayout({
           height={50}
           src="/logo_trinca.svg"
           alt="Trinca's logo"
-          className="bf__image"
         />
       </footer>
     </S.Layout>

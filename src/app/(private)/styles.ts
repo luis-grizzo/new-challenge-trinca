@@ -32,7 +32,7 @@ export const Layout = styled.main`
       height: 100%;
 
       background-color: ${theme.colors.primary};
-      background-image: url("/pattern_bbq.svg");
+      background-image: url('/pattern_bbq.svg');
       background-size: cover;
       box-shadow: inset ${theme.shadows.default};
 
@@ -79,13 +79,6 @@ export const Loading = styled.div`
 
       background-color: ${theme.colors.shape};
       box-shadow: ${theme.shadows.default};
-
-      .lc__image {
-        width: 20rem;
-        height: 20rem;
-
-        backdrop-filter: blur(0.4rem);
-      }
 
       .lc__progress-bar {
         height: 0.5rem;
