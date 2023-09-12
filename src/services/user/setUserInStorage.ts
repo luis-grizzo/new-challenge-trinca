@@ -1,8 +1,8 @@
 import { toast } from 'react-toastify'
 
-import { USER_STORAGE_KEY } from "@/shared/constants"
-import { IUser } from "@/shared/types"
-import { getParsedArrayInStorage, generateId } from "@/shared/lib"
+import { USER_STORAGE_KEY } from '@/shared/constants'
+import { IUser } from '@/shared/types'
+import { getParsedArrayInStorage, generateId } from '@/shared/lib'
 
 /**
  * @function setUserInStorage - Cadastra um novo usuário no localStorage.
@@ -26,5 +26,5 @@ export const setUserInStorage = (email: string, password: string) => {
 
   localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(newStorage))
 
-  toast.success("Usuário cadastrado com sucesso!")
+  toast.success('Usuário cadastrado com sucesso!')
 }

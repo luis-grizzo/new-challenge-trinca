@@ -23,7 +23,7 @@ export const Loading = styled.div`
     overflow: hidden;
 
     background-color: ${theme.colors.primary};
-    background-image: url("/pattern_bbq.svg");
+    background-image: url('/pattern_bbq.svg');
     background-size: cover;
 
     .l__content {

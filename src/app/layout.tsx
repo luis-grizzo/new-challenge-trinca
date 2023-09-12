@@ -21,18 +21,17 @@ const raleway = Raleway({
 
 export const metadata: Metadata = {
   icons: {
-    icon: '/icon.svg',
-    shortcut: '/icon.svg'
+    icon: '/icon.svg'
   },
-  title: 'Agenda de churras - Trinca',
   description: 'Desafio tecnico front-end da empresa Trinca.',
   themeColor: `${theme.colors.primary}`,
   openGraph: {
-    title: 'Agenda de churras - Trinca',
     description: 'Desafio tecnico front-end da empresa Trinca.',
     images: [
       {
-        url: '/icon.svg'
+        url: '/icon.svg',
+        width: 500,
+        height: 500
       }
     ]
   }

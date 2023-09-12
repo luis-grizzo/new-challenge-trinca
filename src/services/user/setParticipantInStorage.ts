@@ -1,8 +1,8 @@
-import { toast } from "react-toastify"
+import { toast } from 'react-toastify'
 
-import { USER_STORAGE_KEY } from "@/shared/constants"
-import { IUser, IEvent, IParticipant } from "@/shared/types"
-import { getParsedArrayInStorage, generateId } from "@/shared/lib"
+import { USER_STORAGE_KEY } from '@/shared/constants'
+import { IUser, IEvent, IParticipant } from '@/shared/types'
+import { getParsedArrayInStorage, generateId } from '@/shared/lib'
 
 /**
  * @function setParticipantInStorage - Adiciona um participante em um evento.
@@ -16,15 +16,18 @@ import { getParsedArrayInStorage, generateId } from "@/shared/lib"
 export const setParticipantInStorage = (
   userId: number | null | undefined,
   eventId: number,
-  participantBaseInfos: Pick<IParticipant, 'name' | 'drink_included' | 'contribution_value'>
+  participantBaseInfos: Pick<
+    IParticipant,
+    'name' | 'drink_included' | 'contribution_value'
+  >
 ) => {
   const parsedStorage = getParsedArrayInStorage<IUser>(USER_STORAGE_KEY)
 
   if (userId) {
-    const user = parsedStorage.find(({id}) => id === userId)
+    const user = parsedStorage.find(({ id }) => id === userId)
 
     if (user) {
-      const event = user.events.find(({id}) => id === eventId)
+      const event = user.events.find(({ id }) => id === eventId)
 
       if (event) {
         const newEvent: IEvent = {
@@ -34,16 +37,16 @@ export const setParticipantInStorage = (
             {
               ...participantBaseInfos,
               id: generateId(),
-              paid: false,
+              paid: false
             }
           ]
         }
 
-        const newStorage = parsedStorage.map(oldUser => {
-          if(oldUser.id === user.id) {
+        const newStorage = parsedStorage.map((oldUser) => {
+          if (oldUser.id === user.id) {
             return {
               ...user,
-              events: user.events.map(oldEvent => {
+              events: user.events.map((oldEvent) => {
                 if (oldEvent.id === event.id) return newEvent
                 else return oldEvent
               })
@@ -53,21 +56,21 @@ export const setParticipantInStorage = (
 
         localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(newStorage))
 
-        toast.success("Participante cadastrado com sucesso!")
+        toast.success('Participante cadastrado com sucesso!')
 
         return newEvent
       } else {
-        toast.error("Evento não encontrado.")
+        toast.error('Evento não encontrado.')
 
         return null
       }
     } else {
-      toast.error("Usuário não encontrado.")
+      toast.error('Usuário não encontrado.')
 
       return null
     }
   } else {
-    toast.error("setParticipantInStorage - Usuário não autenticado.")
+    toast.error('setParticipantInStorage - Usuário não autenticado.')
 
     return null
   }

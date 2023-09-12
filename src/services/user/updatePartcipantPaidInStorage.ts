@@ -22,14 +22,15 @@ export const updatePartcipantPaidInStorage = (
   const parsedStorage = getParsedArrayInStorage<IUser>(USER_STORAGE_KEY)
 
   if (userId) {
-    const user = parsedStorage.find(({id}) => id === userId)
+    const user = parsedStorage.find(({ id }) => id === userId)
 
     if (user) {
-      const event = user.events.find(({id}) => id === eventId)
+      const event = user.events.find(({ id }) => id === eventId)
 
       if (event) {
         const newParticipants = event.participants.map((oldParticipant) => {
-          if (oldParticipant.id === participantId) return { ...oldParticipant, paid: !oldParticipant.paid }
+          if (oldParticipant.id === participantId)
+            return { ...oldParticipant, paid: !oldParticipant.paid }
           else return oldParticipant
         })
 
@@ -43,10 +44,10 @@ export const updatePartcipantPaidInStorage = (
         }
 
         const newStorage = parsedStorage.map((oldUser) => {
-          if (oldUser.id === user.id){
+          if (oldUser.id === user.id) {
             return {
               ...user,
-              events: user.events.map(oldEvent => {
+              events: user.events.map((oldEvent) => {
                 if (oldEvent.id === event.id) return newEvent
                 else return oldEvent
               })
@@ -56,21 +57,21 @@ export const updatePartcipantPaidInStorage = (
 
         localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(newStorage))
 
-        toast.success("Participante atualizado com sucesso!")
+        toast.success('Participante atualizado com sucesso!')
 
         return newEvent
       } else {
-        toast.error("Evento não encontrado.")
+        toast.error('Evento não encontrado.')
 
         return null
       }
     } else {
-      toast.error("Usuário não encontrado.")
+      toast.error('Usuário não encontrado.')
 
       return null
     }
   } else {
-    toast.error("updatePartcipantPaidInStorage - Usuário não autenticado.")
+    toast.error('updatePartcipantPaidInStorage - Usuário não autenticado.')
 
     return null
   }

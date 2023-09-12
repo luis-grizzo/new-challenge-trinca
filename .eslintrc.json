@@ -9,12 +9,12 @@
     "es2021": true
   },
   "extends": [
-    "next",
     "next/core-web-vitals",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "eslint-plugin-react-hooks",
+    "plugin:react-hooks/recommended",
+    "next",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
@@ -25,12 +25,14 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "prettier", "next"],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "prettier",
+    "@typescript-eslint",
+    "@next/eslint-plugin-next"
+  ],
   "rules": {
-    "prettier/prettier": "error",
-    "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/no-empty-interface": "off",
-    "@typescript-eslint/no-empty-function": "off",
-    "react/display-name": "off"
+    "prettier/prettier": "error"
   }
 }

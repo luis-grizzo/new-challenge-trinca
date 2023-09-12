@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { Metadata } from 'next'
 import { MdCreate } from 'react-icons/md'
 
 import { setUserInStorage, validateUserInStorage } from '@/services/user'

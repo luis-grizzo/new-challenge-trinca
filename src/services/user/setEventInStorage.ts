@@ -12,7 +12,6 @@ import { USER_STORAGE_KEY } from '@/shared/constants'
  * @returns Caso a adição resulte verdadeira, retorna os eventos dousuário correspondente atualizados, caso contrario, retorna null.
  */
 
-
 export const setEventInStorage = (
   userId: number | null | undefined,
   eventBaseInfos: Pick<IEvent, 'title' | 'date' | 'description'>
@@ -44,19 +43,17 @@ export const setEventInStorage = (
 
       localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(newStorage))
 
-      toast.success("Churras cadastrado com sucesso!")
+      toast.success('Churras cadastrado com sucesso!')
 
       return newEvents
     } else {
-      toast.error("Usuário não encontrado.")
+      toast.error('Usuário não encontrado.')
 
       return null
     }
   } else {
-    toast.error("setEventInStorage - Usuário não autenticado.")
+    toast.error('setEventInStorage - Usuário não autenticado.')
 
     return null
   }
-
-
 }
