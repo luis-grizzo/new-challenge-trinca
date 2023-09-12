@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useTransition, animated, easings } from 'react-spring'
+import { useTransition, animated } from 'react-spring'
 import { MdClose } from 'react-icons/md'
 
 import * as S from './styles'

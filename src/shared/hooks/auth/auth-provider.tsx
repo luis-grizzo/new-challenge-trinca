@@ -35,7 +35,7 @@ export const AuthProvider = ({
     const userId = validateAuthInSessionStorage()
 
     setUserId(userId)
-  })
+  }, [])
 
   return (
     <AuthContext.Provider value={{ userId, login, logout }}>

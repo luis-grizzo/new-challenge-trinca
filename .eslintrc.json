@@ -33,6 +33,7 @@
     "@next/eslint-plugin-next"
   ],
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "@typescript-eslint/no-empty-interface": "off"
   }
 }

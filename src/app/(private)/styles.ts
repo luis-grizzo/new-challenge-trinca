@@ -32,7 +32,7 @@ export const Layout = styled.main`
       height: 100%;
 
       background-color: ${theme.colors.primary};
-      background-image: url("/pattern_bbq.svg");
+      background-image: url('/pattern_bbq.svg');
       background-size: cover;
       box-shadow: inset ${theme.shadows.default};
 

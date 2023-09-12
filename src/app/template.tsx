@@ -21,7 +21,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
   const formattedPathname = pathanme.replace(/(\/\d+)/g, '')
 
   useEffect(() => {
-    if (!!userId) {
+    if (userId) {
       !privateRoutes.includes(formattedPathname) && router.replace('/home')
     } else if (userId === null) {
       !publicRoutes.includes(formattedPathname) && router.replace('/')
