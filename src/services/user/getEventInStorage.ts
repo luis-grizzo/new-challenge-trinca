@@ -38,7 +38,7 @@ export const getEventInStorage = (
       return null
     }
   } else {
-    toast.error('getEventInStorage - Usuário não autenticado.')
+    toast.error('Usuário não autenticado.')
 
     return null
   }

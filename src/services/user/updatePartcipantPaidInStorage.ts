@@ -57,7 +57,7 @@ export const updatePartcipantPaidInStorage = (
 
         localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(newStorage))
 
-        toast.success('Participante atualizado com sucesso!')
+        toast.info('Participante atualizado!')
 
         return newEvent
       } else {
@@ -71,7 +71,7 @@ export const updatePartcipantPaidInStorage = (
       return null
     }
   } else {
-    toast.error('updatePartcipantPaidInStorage - Usuário não autenticado.')
+    toast.error('Usuário não autenticado.')
 
     return null
   }

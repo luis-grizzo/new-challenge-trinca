@@ -69,7 +69,7 @@ export const removeParticipantInStorage = (
       return null
     }
   } else {
-    toast.error('removeParticipantInStorage - Usuário não autenticado.')
+    toast.error('Usuário não autenticado.')
 
     return null
   }

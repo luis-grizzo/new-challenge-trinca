@@ -26,5 +26,5 @@ export const setUserInStorage = (email: string, password: string) => {
 
   localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(newStorage))
 
-  toast.success('Usuário cadastrado com sucesso!')
+  toast.success('Usuário cadastrado!')
 }

@@ -26,7 +26,7 @@ export const getEventsInStorage = (userId: number | null | undefined) => {
       return null
     }
   } else {
-    toast.error('getEventsInStorage - Usuário não autenticado.')
+    toast.error('Usuário não autenticado.')
 
     return null
   }

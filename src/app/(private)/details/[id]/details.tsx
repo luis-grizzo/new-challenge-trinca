@@ -85,7 +85,7 @@ export default function Details({
     const event = getEventInStorage(userId, parseInt(params.id))
 
     setEvent(event)
-  }, [userId, params])
+  }, [params])
 
   return (
     <S.Details>
@@ -196,11 +196,7 @@ export default function Details({
                     }))
                   }}
                   label="Contribuição"
-                  description={
-                    registerParticipantForm.contribution_value !== 1500
-                      ? 'Valor sugerido por participante - R$15,00.'
-                      : null
-                  }
+                  description="Valor sugerido por participante - R$15,00."
                 />
 
                 <Checkbox

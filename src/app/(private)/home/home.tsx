@@ -71,7 +71,7 @@ export default function Home(): React.ReactElement {
     const events = getEventsInStorage(userId)
 
     setEvents(events)
-  }, [userId])
+  }, [])
 
   return (
     <S.Home>

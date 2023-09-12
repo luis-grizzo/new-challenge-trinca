@@ -56,7 +56,7 @@ export const setParticipantInStorage = (
 
         localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(newStorage))
 
-        toast.success('Participante cadastrado com sucesso!')
+        toast.success('Participante adicionado!')
 
         return newEvent
       } else {
@@ -70,7 +70,7 @@ export const setParticipantInStorage = (
       return null
     }
   } else {
-    toast.error('setParticipantInStorage - Usuário não autenticado.')
+    toast.error('Usuário não autenticado.')
 
     return null
   }
