@@ -1,34 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+  <img src="./public/icon.svg">
+</p>
+<h1 align="center">Agenda de churras</h1>
 
-## Getting Started
+<p align="center">Desafio tecnico front-end da empresa Trinca.</p>
+<p align="center">Este projeto está publicado e pode ser acessado através da url <a href="https://new-challenge-trinca.vercel.app/">https://new-challenge-trinca.vercel.app/</a></p>
 
-First, run the development server:
+## ✔️ Features
+
+- [X] Cadastro e autenticação de usuários
+- [X] Cadastro e listagem dos churras
+- [X] Cadastro, atualização de pagamento e remoção de participantes.
+
+## 🛠️ Tecnologias
+
+- [React](https://react.dev/);
+- [Next.js](https://nextjs.org/);
+- [React-spring](https://www.react-spring.dev/);
+
+---
+
+### 🖥️ Requisitos
+
+- [NodeJS](https://nodejs.org/en/);
+- [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable);
+
+### ⚙️ Como executar a aplicação
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+# Clone este repositório
+$ git clone <https://github.com/luis-grizzo/new-challenge-trinca.git>
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd new-challenge-trinca
+
+# Instalar as dependências
+$ yarn
+
+# Iniciando o projeto
+$ yarn dev
+
+# O servidor inciará na porta:3000 - acesse <http://localhost:3000>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### :memo: License
+Esse projeto está sob MIT license. Veja [LICENSE](https://github.com/luis-grizzo/new-challenge-trinca/blob/main/LICENSE) para mais informações.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+---
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+👨‍🦱 Desenvolvido por **Luís Grizzo** - **Contato:** <a href="https://www.linkedin.com/in/lu%C3%ADs-ot%C3%A1vio-gaido-grizzo-2a957a1b2/">Linkedin</a>
